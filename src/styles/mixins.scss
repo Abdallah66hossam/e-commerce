@@ -1,0 +1,73 @@
+@use "./variable.scss" as color;
+@use "./responsive.scss" as res;
+
+@mixin absCenter {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+@mixin flexCol {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+@mixin flexRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@mixin Heading {
+  & div:first-child {
+    font-size: 3rem;
+    color: color.$medium-yellow;
+    text-transform: capitalize;
+    @include res.respnesive(tab) {
+      font-size: 3rem;
+    }
+    @include res.respnesive(phone) {
+      font-size: 2rem;
+    }
+    span {
+      color: color.$light-yellow;
+      border-bottom: 0.4rem solid color.$light-yellow;
+      font-size: 5rem;
+      padding-bottom: -5rem;
+      @include res.respnesive(tab) {
+        font-size: 4rem;
+      }
+      @include res.respnesive(phone) {
+        font-size: 3rem;
+      }
+    }
+  }
+
+  & p {
+    padding: 1.5rem 0;
+  }
+}
+@mixin inpt {
+  display: block;
+  background: color.$white;
+  border: 0;
+  padding: 1.3rem 1.3rem 1.3rem 1.3rem;
+  background-color: rgba(255, 252, 217, 0.9);
+  color: color.$black;
+  border-radius: 0.5rem;
+  font-size: 1.4rem;
+  letter-spacing: 0.1rem;
+  width: 100%;
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0.4rem 0.4rem rgba(color.$paragraph, 0.3);
+  }
+  &::placeholder {
+    color: color.$white;
+  }
+}
+@mixin invalid {
+  background-color: rgb(255, 212, 212);
+  box-shadow: 0 0 0.4rem 0.4rem rgba(red, 0.2);
+}
